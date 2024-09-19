@@ -5,6 +5,10 @@
   home.homeDirectory = "/home/cryptic";
 
   imports = [
+    ../../modules/home-manager/waybar.nix
+    ../../modules/home-manager/hypridle.nix
+    ../../modules/home-manager/hyprlock.nix
+    ../../modules/home-manager/kitty.nix
     ../../modules/home-manager/hyprland.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/emacs.nix
@@ -28,6 +32,7 @@
     dunst
     pipewire
     wireplumber
+    flameshot
     libsForQt5.polkit-kde-agent
     zathura
     libreoffice
@@ -36,6 +41,7 @@
     alsa-utils
     libsForQt5.qt5.qtwayland
     whatsapp-for-linux
+    octaveFull
   ];
 
   home.sessionVariables = {
@@ -69,7 +75,30 @@
     };
       
   };
-  
 
-    
+  
+    #services.hypridle = {
+    #  enable = true;
+    #  settings = {
+    #    general = {
+    #      after_sleep_cmd = "hyprctl dispatch dpms on";
+    #      ignore_dbus_inhibit = false;
+    #      lock_cmd = "hyprlock";
+    #    };
+
+    #    listener = [
+    #      {
+    #        timeout = 200;
+    #        on-timeout = "hyprlock";
+    #      }
+    #      {
+    #        timeout = 1200;
+    #        on-timeout = "hyprctl dispatch dpms off";
+    #        on-resume = "hyprctl dispatch dpms on";
+    #      }
+    #    ];
+    #  };
+    #};
+
+      
 }

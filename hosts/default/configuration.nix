@@ -27,6 +27,23 @@
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     
   };
+
+
+  programs.hyprlock.enable = true;
+  services.hypridle.enable = true;
+
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      mesa.drivers
+    ];
+  };
+  
   programs.uwsm.enable = true;
 
   home-manager = {
@@ -69,7 +86,17 @@
    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
+   time.timeZone = "Africa/Accra";
+
+   fonts.packages = with pkgs; [
+     noto-fonts
+     noto-fonts-cjk
+     noto-fonts-emoji
+     liberation_ttf
+     fira-code
+     fira-code-symbols
+     nerdfonts
+   ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

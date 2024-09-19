@@ -6,6 +6,7 @@
 
     settings = {
       monitor = ",highres, auto, auto";
+      exec-once = "waybar";
       xwayland = {
         force_zero_scaling = true;
       };
