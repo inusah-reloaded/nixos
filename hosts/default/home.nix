@@ -5,6 +5,7 @@
   home.homeDirectory = "/home/cryptic";
 
   imports = [
+    ../../modules/home-manager/bemenu.nix
     ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/hypridle.nix
     ../../modules/home-manager/hyprlock.nix

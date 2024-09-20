@@ -18,8 +18,19 @@
   };
   
   security.polkit.enable = true;
+  security.rtkit.enable = true;
   security.pam.services.hyprlock = {};
-  
+
+  services.printing.enable = true;
+  services.udisks2.enable = true;
+
+#  services.flatpak.enable = true;
+
+  services.auto-cpufreq.enable = true;
+  powerManagement.enable = true;
+    
+    
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -27,6 +38,15 @@
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     
   };
+
+
+#  xdg.portal = {
+#    enable = true;
+#    extraPortals = [
+#      pkgs.xdg-desktop-portal-hyprland
+#      pkgs.xdg-desktop-portal-gtk
+#    ];
+#  };
 
 
   programs.hyprlock.enable = true;

@@ -7,5 +7,8 @@
       epkgs.python-mode
       epkgs.denote
     ];
+    extraConfig = ''
+
+    '';
   };
 }

@@ -10,6 +10,19 @@
         ignore_dbus_inhibit = false;
         lock_cmd = "hyprlock --immediate";
       };
+
+      listener = [
+          {
+            timeout = 200;
+            on-timeout = "hyprlock";
+          }
+          {
+            timeout = 250;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+        ];
+      
     };
   };
 }
