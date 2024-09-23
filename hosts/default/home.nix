@@ -1,4 +1,13 @@
 { config, pkgs, inputs, ...}:
+let
+  tex = (pkgs.texlive.combine {
+    inherit (pkgs.texlive) scheme-medium
+      dvisvgm dvipng # for preview and export as html
+      wrapfig amsmath ulem hyperref capt-of;
+      #(setq org-latex-compiler "lualatex")
+      #(setq org-preview-latex-default-process 'dvisvgm)
+  });
+in
 
 {
   home.username = "cryptic";
@@ -20,6 +29,7 @@
   programs.home-manager.enable = true;
   
   home.packages = with pkgs; [
+    tex
     git
     vim
     keyd

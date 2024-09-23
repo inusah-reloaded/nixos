@@ -39,6 +39,11 @@
     
   };
 
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs-gtk;
+    defaultEditor = true;
+  };
 
 #  xdg.portal = {
 #    enable = true;
